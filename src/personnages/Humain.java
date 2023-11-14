@@ -3,7 +3,7 @@ package personnages;
 public class Humain {
 	private String nom;
 	private String boissonFav;
-	private int capital;
+	protected int capital;
 	
 	public Humain(String nom, String boissonFav, int capital) {
 		this.nom        = nom;
@@ -19,8 +19,8 @@ public class Humain {
 		return capital;
 	}
 	
-	private void parler(String text) {
-		System.out.println(nom + ": " + text);
+	protected void parler(String text) {
+		System.out.println("\033[3m(" + nom + ") - " + text + "\033[0m");
 	}
 	
 	public void direBonjour() {
@@ -31,7 +31,7 @@ public class Humain {
 		parler("Mmmm, un bon verre de " + boissonFav + " ! GLOUPS !");
 	}
 	
-	public boolean gagnerArgent(int prix) {
+	protected boolean gagnerArgent(int prix) {
 		if(prix >= 0) {
 			capital += prix;
 			return true;
@@ -39,7 +39,7 @@ public class Humain {
 		return false;
 	}
 	
-	public boolean perdreArgent(int prix) {
+	protected boolean perdreArgent(int prix) {
 		if(prix >= 0 && prix <= capital) {
 			capital -= prix;
 			return true;
@@ -49,8 +49,8 @@ public class Humain {
 	
 	public void acheter(String bien, int prix) {
 		if(perdreArgent(prix))
-			System.out.println("J'ai " + capital + " sous en poche. Je vais pouvoir m'orir " + bien + " à " + prix + " sous");
+			parler("J'ai " + (capital + prix) + " sous en poche. Je vais pouvoir m'orir " + bien + " à " + prix + " sous");
 		else
-			System.out.println("Je n'ai plus que " + capital + " sous en poche. Je ne peux même pas m'orir " + bien + " à " + prix + " sous");
+			parler("Je n'ai plus que " + capital + " sous en poche. Je ne peux même pas m'orir " + bien + " à " + prix + " sous");
 	}
 }
