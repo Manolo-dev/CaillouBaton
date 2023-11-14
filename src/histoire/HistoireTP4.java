@@ -20,7 +20,14 @@ public class HistoireTP4 {
 		marco.boire();
 	}
 	
+	private static void scenar3() {
+		Commercant marco = new Commercant("Marco", "thé", 15);
+		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "");
+		yaku.direBonjour();
+		yaku.extorquer(marco);
+	}
+	
 	public static void main(String[] args) {
-		scenar2();
+		scenar3();
 	}
 }
