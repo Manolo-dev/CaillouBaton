@@ -27,7 +27,14 @@ public class HistoireTP4 {
 		yaku.extorquer(marco);
 	}
 	
+	private static void scenar4() {
+		Commercant marco = new Commercant("Marco", "thé", 15);
+		Ronin roro = new Ronin("Roro", "shochu", 60);
+		roro.direBonjour();
+		roro.donner(marco);
+	}
+	
 	public static void main(String[] args) {
-		scenar3();
+		scenar4();
 	}
 }
