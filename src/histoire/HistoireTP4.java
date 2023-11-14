@@ -22,19 +22,31 @@ public class HistoireTP4 {
 	
 	private static void scenar3() {
 		Commercant marco = new Commercant("Marco", "thé", 15);
-		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "");
+		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "Warsong", 0);
 		yaku.direBonjour();
 		yaku.extorquer(marco);
 	}
 	
 	private static void scenar4() {
 		Commercant marco = new Commercant("Marco", "thé", 15);
-		Ronin roro = new Ronin("Roro", "shochu", 60);
+		Ronin roro = new Ronin("Roro", "shochu", 60, 1);
 		roro.direBonjour();
 		roro.donner(marco);
 	}
 	
+	private static void scenar5() {
+		Ronin roro = new Ronin("Roro", "shochu", 60, 1);
+		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 45, "Warsong", 0);
+		roro.provoquer(yaku);
+	}
+	
+	private static void scenar6() {
+		Ronin roro = new Ronin("Roro", "shochu", 54, 1);
+		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 45, "Warsong", 4);
+		roro.provoquer(yaku);
+	}
+	
 	public static void main(String[] args) {
-		scenar4();
+		scenar6();
 	}
 }

@@ -1,8 +1,8 @@
 package personnages;
 
 public class Humain {
-	private String nom;
 	private String boissonFav;
+	protected String nom;
 	protected int capital;
 	
 	public Humain(String nom, String boissonFav, int capital) {
