@@ -20,7 +20,7 @@ public class Ronin extends Humain {
 	
 	public void provoquer(Yakuza advairsaire) {
 		int force = honneur * 2;
-		parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand!");
+		parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand !");
 		if(force >= advairsaire.getReputation()) {
 			parler("Je t'ai eu petit yakusa!");
 			int tmp = advairsaire.perdre();

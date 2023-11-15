@@ -32,7 +32,7 @@ public class Humain {
 	}
 	
 	public void direBonjour() {
-		parler("Bonjour, Je m'appelle " + nom + " et j'aime boire du " + boissonFav);
+		parler("Bonjour, Je m'appelle " + nom + " et j'aime boire du " + boissonFav + ".");
 	}
 	
 	public void boire() {
@@ -57,9 +57,9 @@ public class Humain {
 	
 	public void acheter(String bien, int prix) {
 		if(perdreArgent(prix))
-			parler("J'ai " + (capital + prix) + " sous en poche. Je vais pouvoir m'orir " + bien + " à " + prix + " sous");
+			parler("J'ai " + (capital + prix) + " sous en poche. Je vais pouvoir m'orir " + bien + " à " + prix + " sous.");
 		else
-			parler("Je n'ai plus que " + capital + " sous en poche. Je ne peux même pas m'orir " + bien + " à " + prix + " sous");
+			parler("Je n'ai plus que " + capital + " sous en poche. Je ne peux même pas m'orir " + bien + " à " + prix + " sous.");
 	}
 	
 	private void memoriser(Humain h) {
@@ -91,6 +91,7 @@ public class Humain {
 			if (i < (memoireDebut + nbConnaissance - 1))
 				buffer.append(", ");
 		}
+		buffer.append(".");
 		String result = buffer.toString();
 		parler(result);
 	}
