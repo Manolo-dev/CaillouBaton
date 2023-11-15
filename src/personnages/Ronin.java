@@ -3,6 +3,10 @@ package personnages;
 public class Ronin extends Humain {
 	private int honneur = 1;
 	
+	public Ronin(String nom, String boissonFav, int capital) {
+		super(nom, boissonFav, capital);
+	}
+	
 	public Ronin(String nom, String boissonFav, int capital, int honneur) {
 		super(nom, boissonFav, capital);
 		this.honneur = honneur;
