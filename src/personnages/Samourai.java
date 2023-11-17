@@ -8,6 +8,7 @@ public class Samourai extends Ronin {
 		this.seigneur = seigneur;
 	}
 	
+	@Override
 	public void direBonjour() {
 		super.direBonjour();
 		parler("Je suis fier de servir le seigneur " + seigneur + ".");

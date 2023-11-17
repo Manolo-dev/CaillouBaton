@@ -6,7 +6,6 @@ public class Humain {
 	protected int capital;
 	protected Humain memoire[];
 	protected int nbConnaissance = 0;
-	private int memoireDebut = 0;
 	private static int maxMemoire = 30;
 
 	public Humain(String nom, String boissonFav, int capital) {
@@ -23,7 +22,7 @@ public class Humain {
 		return nom;
 	}
 	
-	public int getCapital() {
+	public int getArgent() {
 		return capital;
 	}
 	
@@ -63,14 +62,8 @@ public class Humain {
 	}
 	
 	private void memoriser(Humain h) {
-		if(nbConnaissance < maxMemoire) {
-			memoire[nbConnaissance] = h;
-			nbConnaissance += 1;
-		} else {
-			memoire[memoireDebut] = h;
-			memoireDebut += 1;
-			memoireDebut = memoireDebut % maxMemoire;
-		}
+		memoire[nbConnaissance % maxMemoire] = h;
+		nbConnaissance += 1;
 	}
 	
 	private void repondre(Humain h1) {
@@ -86,10 +79,12 @@ public class Humain {
 	
 	public void listerConnaissance() {
 		StringBuffer buffer = new StringBuffer("Je connais beaucoup de monde dont : ");
-		for (int i = memoireDebut; i < (memoireDebut + nbConnaissance); i++) {
-			buffer.append(memoire[i % maxMemoire].getNom());
-			if (i < (memoireDebut + nbConnaissance - 1))
-				buffer.append(", ");
+		for (int i = nbConnaissance; i < (nbConnaissance + maxMemoire); i++) {
+			if(memoire[i % maxMemoire] != null) {
+				buffer.append(memoire[i % maxMemoire].getNom());
+				if (i < (nbConnaissance + maxMemoire - 1))
+					buffer.append(", ");
+			}
 		}
 		buffer.append(".");
 		String result = buffer.toString();
