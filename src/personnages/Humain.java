@@ -6,7 +6,7 @@ public class Humain {
 	protected int capital;
 	protected Humain memoire[];
 	protected int nbConnaissance = 0;
-	private static int maxMemoire = 30;
+	private static final int maxMemoire = 30;
 
 	public Humain(String nom, String boissonFav, int capital) {
 		if (this.memoire == null) {
@@ -61,12 +61,12 @@ public class Humain {
 			parler("Je n'ai plus que " + capital + " sous en poche. Je ne peux même pas m'orir " + bien + " à " + prix + " sous.");
 	}
 	
-	private void memoriser(Humain h) {
+	protected void memoriser(Humain h) {
 		memoire[nbConnaissance % maxMemoire] = h;
 		nbConnaissance += 1;
 	}
 	
-	private void repondre(Humain h1) {
+	protected void repondre(Humain h1) {
 		direBonjour();
 		memoriser(h1);
 	}
@@ -79,10 +79,10 @@ public class Humain {
 	
 	public void listerConnaissance() {
 		StringBuffer buffer = new StringBuffer("Je connais beaucoup de monde dont : ");
-		for (int i = nbConnaissance; i < (nbConnaissance + maxMemoire); i++) {
+		for(int i = nbConnaissance; i < (nbConnaissance + maxMemoire); i++) {
 			if(memoire[i % maxMemoire] != null) {
 				buffer.append(memoire[i % maxMemoire].getNom());
-				if (i < (nbConnaissance + maxMemoire - 1))
+				if(i < (nbConnaissance + maxMemoire - 1))
 					buffer.append(", ");
 			}
 		}
